@@ -1,5 +1,5 @@
 # Flask Note-Taking Application
-This is a simple Flask web application for taking and managing notes. Users can create, view, and delete their notes after logging into the application.
+This is a fullstack web application for taking notes. Its features include user authentication, note creation, and deletion functionalities, managing your notes is intuitive and efficient. I am also thinking of turning it into a productivity application, collaborations are open.
 
 # Features
 User Authentication: Users can register, log in, and log out. User-specific features are available after logging in.
