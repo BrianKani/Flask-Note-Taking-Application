@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, Jsonify
+from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
 from .models import Note
 from . import db 
@@ -9,7 +9,7 @@ views = Blueprint('views', __name__ )
 
 
 @views.route('/', methods=['GET','POST'])
-@login_required()
+@login_required
 def home():
     if request.method == 'POST':
         note = request.form.get('note')
@@ -18,7 +18,7 @@ def home():
             flash('Note is empty', category='error')
         else:
             new_note = Note(data=note, user_id=current_user.id)
-            db.sesion.add(new_note)
+            db.session.add(new_note)
             db.session.commit()
             flash('Note added', category='success')
 
@@ -34,4 +34,4 @@ def delete_note():
             db.session.delete(note)
             db.session.commit()
 
-    return Jsonify({})
+    return jsonify({})
